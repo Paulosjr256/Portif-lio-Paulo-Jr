@@ -1,3 +1,7 @@
+/*
+    ESTILOS GLOBAIS
+    Essas regras se aplicam a todo o site, definindo o padrão.
+*/
 * {
     margin: 0;
     padding: 0;
@@ -6,31 +10,33 @@
 }
 
 :root {
-    /* Usando variáveis para cores, o que facilita futuras alterações */
     --primary-color: #f9004d;
     --text-color: #ffffff;
-    --background-color-dark: #191919;
-    --background-color-light: #000000;
+    --background-dark: #191919;
+    --background-light: #000000;
 }
 
 body {
-    background-color: var(--background-color-dark);
+    background-color: var(--background-dark);
 }
 
+/*
+    SEÇÃO PRINCIPAL (INÍCIO)
+*/
 .caixa-principal {
     height: 100vh;
     width: 100%;
     background-image: url(./img/background.png);
     background-size: cover;
     background-position: center;
+    background-color: var(--background-dark);
 }
 
-/* Flexbox para o cabeçalho, facilita o alinhamento */
 nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 25px 5%; /* Ajuste o padding para ser mais flexível */
+    padding: 25px 5%;
 }
 
 .portfolio {
@@ -45,8 +51,8 @@ nav {
 
 nav ul {
     list-style: none;
-    display: flex; /* Flexbox para a lista de navegação */
-    gap: 30px; /* Espaço entre os links, mais moderno que margin-right */
+    display: flex;
+    gap: 30px;
 }
 
 .link-menu {
@@ -63,8 +69,8 @@ nav ul {
 .meu-nome {
     position: absolute;
     top: 50%;
-    left: 5%; /* Use porcentagem para um alinhamento mais flexível */
-    transform: translateY(-50%); /* Centraliza verticalmente */
+    left: 7%;
+    transform: translateY(-50%);
 }
 
 .meu-nome h1 {
@@ -81,22 +87,29 @@ nav ul {
     font-size: 25px;
 }
 
-/* Seção "Sobre mim" */
+/*
+    SEÇÃO "SOBRE MIM"
+*/
 section {
     display: flex;
     align-items: center;
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
-    flex-wrap: wrap; /* Permite que os itens quebrem a linha */
+    justify-content: center;
+    flex-wrap: wrap;
     padding: 60px 5%;
-    background-color: var(--background-color-light);
-    gap: 30px; /* Espaço entre a imagem e o texto */
+    background-color: var(--background-light);
+    gap: 30px;
 }
 
 section img {
     height: 400px;
-    width: auto; /* Garante que a imagem se ajuste ao tamanho */
+    width: auto;
     border-radius: 100%;
     border: 2px solid var(--primary-color);
+}
+
+section div {
+    max-width: 600px;
+    text-align: center;
 }
 
 section div h2 {
@@ -108,14 +121,21 @@ section div p {
     color: #e2b9c6;
     font-size: 24px;
     margin-top: 15px;
-    margin-bottom: 60px;
-    max-width: 600px; /* Limita a largura do parágrafo para melhor leitura */
+    margin-bottom: 30px; /* Reduzida a margem para ficar mais perto dos botões */
 }
 
-section div button {
+/* Container para os botões "Entre em contato" e "Baixar Currículo" */
+.botoes-contato {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+section a button {
     color: var(--text-color);
     background: var(--primary-color);
-    padding: 15px 30px; /* Use padding para um tamanho flexível */
+    padding: 15px 30px;
     font-size: 18px;
     border: none;
     border-radius: 26px;
@@ -123,14 +143,16 @@ section div button {
     transition: background-color 0.5s, border 0.5s;
 }
 
-section div button:hover {
-    background-color: var(--background-color-light);
+section a button:hover {
+    background-color: var(--background-light);
     border: 3px solid var(--primary-color);
 }
 
-/* Seção de Projetos */
+/*
+    SEÇÃO DE PROJETOS
+*/
 .projetos {
-    background-color: var(--background-color-dark);
+    background-color: var(--background-dark);
     padding: 50px 5% 100px 5%;
     text-align: center;
 }
@@ -145,19 +167,19 @@ section div button:hover {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 30px; /* Espaçamento entre os cards */
-    margin-top: 50px; /* Mudei de 100px para 50px para otimizar */
+    gap: 30px;
+    margin-top: 50px;
 }
 
 .card {
-    background-color: var(--background-color-light);
-    width: 335px; /* Use uma largura fixa para os cards */
-    min-height: 365px; /* Garante que os cards tenham a mesma altura */
+    background-color: var(--background-light);
+    width: 335px;
+    min-height: 365px;
     border-radius: 20px;
     padding: 20px 35px;
-    display: flex; /* Flexbox para o conteúdo do card */
+    display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Espaço entre os elementos */
+    justify-content: space-between;
     align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -175,6 +197,7 @@ section div button:hover {
 .card p {
     color: #e2b9c6;
     margin-top: 20px;
+    margin-bottom: 40px;
 }
 
 .card a {
@@ -185,7 +208,7 @@ section div button:hover {
     cursor: pointer;
     transition: background-color 0.5s, border 0.5s;
     text-decoration: none;
-    display: inline-block; /* Para o hover funcionar corretamente */
+    display: inline-block;
 }
 
 .card a:hover {
@@ -193,10 +216,12 @@ section div button:hover {
     border: 2px solid var(--primary-color);
 }
 
-/* Rodapé */
+/*
+    RODAPÉ
+*/
 footer {
-    background-color: var(--background-color-light);
-    padding: 100px 5% 120px 5%; /* Ajuste o padding */
+    background-color: var(--background-light);
+    padding: 100px 5% 120px 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -240,22 +265,21 @@ footer p {
 }
 
 /*
-    MEDIA QUERIES: AJUSTES PARA TELAS MENORES (até 768px)
-    Essas regras sobrescrevem as anteriores para se adequar a tablets e celulares.
+    MEDIA QUERIES - TELAS MENORES (até 768px)
+    Estes estilos são aplicados em tablets e celulares, ajustando o layout.
 */
 @media (max-width: 768px) {
-    
     /* Menu de navegação */
     nav ul {
-        display: none; /* Esconde o menu de navegação em telas pequenas */
+        display: none;
     }
 
     .meu-nome {
         top: 30%;
         left: 5%;
-        transform: none; /* Remove a centralização vertical */
+        transform: none;
         text-align: center;
-        width: 100%;
+        width: 90%;
     }
     
     .meu-nome h1 {
@@ -269,11 +293,11 @@ footer p {
     /* Seção "Sobre mim" */
     section {
         flex-direction: column;
-        text-align: center;
+        padding: 40px 5%;
     }
     
     section img {
-        height: 250px; /* Reduz o tamanho da imagem */
+        height: 250px;
         margin-bottom: 20px;
     }
 
@@ -283,7 +307,7 @@ footer p {
 
     section div p {
         font-size: 18px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
     
     /* Seção de Projetos */
@@ -292,12 +316,13 @@ footer p {
     }
     
     .card-projetos {
-        flex-direction: column; /* Empilha os cards verticalmente */
+        flex-direction: column;
         align-items: center;
+        gap: 25px;
     }
     
     .card {
-        width: 90%; /* Ocupa 90% da largura da tela */
+        width: 90%;
     }
 
     /* Rodapé */
@@ -312,4 +337,10 @@ footer p {
     footer p {
         font-size: 16px;
     }
+}
+
+    footer p {
+        font-size: 16px;
+    }
+
 }
